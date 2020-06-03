@@ -1,5 +1,5 @@
 //
-//  ContactsController.h
+//  LSIContactsController.h
 //  Contacts-Hybrid
 //
 //  Created by David Wright on 6/2/20.
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ContactsController : NSObject
+@interface LSIContactsController : NSObject
 
 @property (nonatomic ,readonly, copy) NSArray<Contact *> *contacts;
 
