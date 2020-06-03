@@ -44,7 +44,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [LSIPersonController.shared searchForPeopleWith:searchBar.text completion:^(NSArray<LSIPerson *> *people, NSError *error) {
+    [LSIPersonController.sharedController searchForPeopleWithSearchTerm:searchBar.text completionHandler:^(NSArray<LSIPerson *> *people, NSError *error) {
         if (error) {
             NSLog(@"Error searching for %@: %@", searchBar.text, error);
         }
