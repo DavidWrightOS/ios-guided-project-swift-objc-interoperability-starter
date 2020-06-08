@@ -21,6 +21,25 @@
 
 @implementation LSIContactsController
 
+// lazy array
+
+// The instance variable (_contacts) doesn't exist because we made our property readonly
+
+// When getter is overridden and we use readonly, we need to tell the compiler to make
+// a "backing" instance variable named _contacts
+@synthesize contacts = _contacts;
+- (NSArray<LSIContact *> *)contacts
+{
+    if (!_contacts) {
+        //_contacts = [[NSArray alloc] init];
+        _contacts = @[
+            [[LSIContact alloc] initWithName:@"David" relationship:@"Me"],
+            [[LSIContact alloc] initWithName:@"Katie" relationship:@"Wife"],
+        ];
+    }
+    return _contacts;
+}
+
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -32,10 +51,10 @@
     return self;
 }
 
-- (NSArray *)contacts
-{
-    return _internalContacts.copy;
-}
+//- (NSArray *)contacts
+//{
+//    return _internalContacts.copy;
+//}
 
 - (LSIContact *)contactAtIndex:(NSInteger)index
 {
